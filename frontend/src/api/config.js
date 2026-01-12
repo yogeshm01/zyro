@@ -1,4 +1,5 @@
-const API_BASE_URL = "http://localhost:3001/api";
+const API_BASE_URL = "https://zyro-iuxz.onrender.com/api";
+export const MEDIA_BASE_URL = "https://zyro-iuxz.onrender.com";
 
 export const apiFetch = async (endpoint, options = {}) => {
   const response = await fetch(`${API_BASE_URL}${endpoint}`, {

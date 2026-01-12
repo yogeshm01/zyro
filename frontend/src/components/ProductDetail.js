@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getProductById } from "../api/productDetails";
 import { addToCart } from "../api/cart";
 import ModelViewer from "../three/ModelViewer";
+import { MEDIA_BASE_URL } from "../api/config";
 
 function ProductDetail() {
     const { id } = useParams();
@@ -79,7 +80,7 @@ function ProductDetail() {
                             (() => {
                                 // prefer thumbnail_url (backend returns thumbnail_url); fall back to other common names
                                 const imgPath = product.thumbnail_url || product.image_url || product.image || product.thumbnail || "";
-                                const imgSrc = imgPath ? `http://localhost:3001${imgPath}` : null;
+                                const imgSrc = imgPath ? `${MEDIA_BASE_URL}${imgPath}` : null;
 
                                 return imgSrc ? (
                                     <img
@@ -93,7 +94,7 @@ function ProductDetail() {
                             })()
                         ) : (
                             <ModelViewer
-                                modelUrl={product.model_url ? `http://localhost:3001${product.model_url}` : null}
+                                modelUrl={product.model_url ? `${MEDIA_BASE_URL}${product.model_url}` : null}
                             />
                         )}
                     </div>

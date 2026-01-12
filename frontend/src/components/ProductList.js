@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllProducts } from "../api/products";
 import { Link } from "react-router-dom";
+import { MEDIA_BASE_URL } from "../api/config";
 
 function ProductList() {
     const [products, setProducts] = useState([]);
@@ -58,7 +59,7 @@ function ProductList() {
             <div className="h-40 mb-3 flex items-center justify-center bg-gray-50 rounded overflow-hidden">
               {(() => {
                 const imgPath = p.thumbnail_url || p.image_url || p.image || p.thumbnail || "";
-                const src = imgPath ? `http://localhost:3001${imgPath}` : null;
+                                const src = imgPath ? `${MEDIA_BASE_URL}${imgPath}` : null;
                 return src ? (
                   <img src={src} alt={p.name} className="max-h-full max-w-full object-contain" />
                 ) : (

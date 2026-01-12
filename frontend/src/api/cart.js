@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:3001/api";
+const API_BASE_URL = "https://zyro-iuxz.onrender.com/api";
 
 // ------------------ Auth Headers ----------------
 const getAuthHeaders = () => {
@@ -29,7 +29,7 @@ export const checkoutCart = async () => {
 // ------------------ Add to Cart ----------------
 export const addToCart = async (productId, quantity) => {
   const token = localStorage.getItem("token");
-  const res = await fetch("http://localhost:3001/api/cart/add", {
+  const res = await fetch(`${API_BASE_URL}/cart/add`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
